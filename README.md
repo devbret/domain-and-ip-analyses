@@ -31,3 +31,13 @@ Below are instructions for how to install and use this app.
 6. Run the script with the command `python3 app.py --domain example.com --ip 8.8.8.8`
 
 7. The results will be returned to you via your CLI and as JSON in a local `reports` directory
+
+## Other Considerations
+
+This project repo is intended to demonstrate an ability to do the following:
+
+- Perform reconnaissance on a domain and associated IP address
+
+- Consolidate collected intelligence into a structured JSON report
+
+If you have any questions or would like to collaborate, please reach out either on GitHub or via [my website](https://bretbernhoft.com/).
