@@ -1,14 +1,18 @@
-# Website Domain And IP Address Analyses
+# Domain And IP Address Analyses
 
-A CLI-based domain and IP intelligence tool which performs structured reconnaissance and outputs timestamped JSON reports.
+Comprehensive network intelligence and reconnaissance tool for gathering detailed technical metadata about domain names and IP addresses.
 
-## Overview
+## Application Overview
 
-Given a domain and/or IP address, this application gathers WHOIS data, DNS records, DNSSEC status, SSL certificate details, email security records, website content previews, performance metrics, reverse DNS, IP geolocation, open port scans, RDAP ownership data, banner grabbing and ICMP latency results. The tool supports command-line configuration for scanning parameters, properly serializes datetime objects for clean JSON output and automatically archives results to a timestamped file.
+When analyzing a domain, this application collects critical information such as WHOIS registration data, DNS records, SSL certificate details and email security configurations. For web-based targets, it conducts basic performance checks and captures a preview of the website's content to provide an overview of a domain's digital footprint.
 
-## Set Up Instructions
+For IP-based analysis, the tool performs deeper infrastructure reconnaissance by conducting multi-threaded port scans, retrieving geolocation data and performing reverse DNS lookups. It also interacts with network protocols to capture service banners, verify RDAP information and measure ping latency.
 
-Below are instructions for how to install and use this app.
+All gathered data is organized and exported as a JSON file, making it an effective tool for security auditing or automated reconnaissance gathering.
+
+## Basic Setup Instructions
+
+Below are instructions for how to install and use this app on a Linux machine.
 
 ### Programs Needed
 
@@ -22,22 +26,30 @@ Below are instructions for how to install and use this app.
 
 2. Open a terminal
 
-3. Clone this repository using `git` by running the following command `git clone git@github.com:devbret/domain-and-ip-analyses.git`
+3. Clone this repository: `git clone git@github.com:devbret/domain-and-ip-analyses.git`
 
-4. Navigate to the repo's directory by running `cd domain-and-ip-analyses`
+4. Navigate to the repo's directory: `cd domain-and-ip-analyses`
 
-5. Install the needed dependencies for operating the script by running `pip install -r requirements.txt`
+5. Create a virtual environment: `python3 -m venv venv`
 
-6. Run the script with the command `python3 app.py --domain example.com --ip 8.8.8.8`
+6. Activate the virtual environment: `source venv/bin/activate`
 
-7. The results will be returned to you via your CLI and as JSON in a local `reports` directory
+7. Install the needed dependencies: `pip install -r requirements.txt`
+
+8. Run the script: `python3 app.py --domain example.com --ip 8.8.8.8`
+
+9. Deactivate the virtual environment: `deactivate`
 
 ## Other Considerations
 
 This project repo is intended to demonstrate an ability to do the following:
 
-- Perform reconnaissance on a domain and associated IP address
+- Perform domain analysis by gathering WHOIS data, DNS records, SSL certificates and other information
 
-- Consolidate collected intelligence into a structured JSON report
+- Conduct reconnaissance on IP addresses through port scanning, geolocation mapping and banner grabbing
+
+- Automate the collection of network metadata into structured JSON reports for analysis
+
+- Serve as a powerful reconnaissance tool for mapping the digital footprint of both domains and IP addresses
 
 If you have any questions or would like to collaborate, please reach out either on GitHub or via [my website](https://bretbernhoft.com/).
