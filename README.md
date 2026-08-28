@@ -42,6 +42,10 @@ Below are instructions for how to install and use this app on a Linux machine.
 
 ## Other Considerations
 
+This section presents information about the project outside of the setup and usage instructions above. It outlines the specific technical abilities this repository is meant to showcase and it summarizes the terms under which the code is licensed for reuse. As well as offers information on how to contact the maintainer with suggestions, questions and collaboration opportunities.
+
+### Abilities Demonstrated
+
 This project repo is intended to demonstrate an ability to do the following:
 
 - Perform domain analysis by gathering WHOIS data, DNS records, SSL certificates and other information
@@ -51,5 +55,9 @@ This project repo is intended to demonstrate an ability to do the following:
 - Automate the collection of network metadata into structured JSON reports for analysis
 
 - Serve as a powerful reconnaissance tool for mapping the digital footprint of both domains and IP addresses
+
+### License Information
+
+This repository is distributed under the MIT License. You are free to use, copy, modify, merge, publish, distribute, sublicense and sell copies of this software, including as part of proprietary or commercial work. The single condition is the copyright and permission notices contained in the LICENSE file must be included with any copy or substantial portion of the software that you redistribute. The software is provided "as is", without warranty of any kind, and the copyright holder is not liable for any claim or damages arising from its use.
 
 If you have any questions or would like to collaborate, please reach out either on GitHub or via [my website](https://bretbernhoft.com/).
