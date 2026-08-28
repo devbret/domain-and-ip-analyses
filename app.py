@@ -158,22 +158,27 @@ def fetch_website(domain: str, scheme: str = "http", timeout: int = 10) -> reque
     )
 
 
-def check_website_content(domain: str, preview_chars: int = 1000) -> JSONLike:
+def summarize_website(domain: str, preview_chars: int = 1000) -> Dict[str, JSONLike]:
     resp = fetch_website(domain, "http")
     text = resp.text or ""
-    return text[:preview_chars]
-
-
-def measure_website_performance(domain: str) -> JSONLike:
-    resp = fetch_website(domain, "http")
     return {
-        "load_time_seconds": resp.elapsed.total_seconds(),
-        "status_code": resp.status_code,
-        "final_url": resp.url,
+        "content_preview": text[:preview_chars],
+        "performance": {
+            "load_time_seconds": resp.elapsed.total_seconds(),
+            "status_code": resp.status_code,
+            "final_url": resp.url,
+        },
     }
 
 
 def build_domain_report(domain: str, preview_chars: int = 1000) -> DomainReport:
+    website = safe_call(summarize_website, domain, preview_chars)
+    if isinstance(website, dict):
+        content_preview = website["content_preview"]
+        performance = website["performance"]
+    else:
+        content_preview = performance = website
+
     return DomainReport(
         domain=domain,
         whois=safe_call(get_domain_whois, domain),
@@ -181,8 +186,8 @@ def build_domain_report(domain: str, preview_chars: int = 1000) -> DomainReport:
         ssl_certificate=safe_call(get_domain_ssl_certificate, domain),
         dnssec=safe_call(check_dnssec, domain),
         email_security=safe_call(get_email_security_records, domain),
-        website_content_preview=safe_call(check_website_content, domain, preview_chars),
-        website_performance=safe_call(measure_website_performance, domain),
+        website_content_preview=content_preview,
+        website_performance=performance,
     )
 
 
